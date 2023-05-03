@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {TabControl} from './tab';
 import {SearchMain} from './search';
 import {OrderMain} from './order';
+import styles from '../styles/main.module.css';
 
 class Contents extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class Contents extends Component {
     }
     render() {
         return (
-            <div>
+            <div className={styles.main}>
                 <TabControl tabSelectCallback={(name) => this.selectTab(name)} />
                 <ContentMain tabSelect={this.state.tabSelect} />
             </div>

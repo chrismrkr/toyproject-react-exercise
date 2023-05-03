@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from '../styles/order.module.css';
 
 class OrderMain extends Component {
     constructor(props) {
@@ -75,12 +76,12 @@ class ItemSearchEngine extends Component {
     }
     render() {
         return (
-            <form onSubmit={(e) => this.handleSubmit(e)}>
+            <form className={styles.search_engine_form} onSubmit={(e) => this.handleSubmit(e)}>
                 <label>
-                    <b>검색어</b>
-                    <input type="text" value={this.state.searchKey} onChange={(e)=>this.handleChange(e)}></input>
+                    <b className={styles.search_engine_form}>검색어</b>
+                    <input className={styles.search_engine_form} type="text" value={this.state.searchKey} onChange={(e)=>this.handleChange(e)} placeholder="상품명을 입력하세요."></input>
                 </label>
-                <input type="submit" value="검색"></input>
+                <input className={styles.search_engine_form} type="submit" value="검색"></input>
             </form>
         );
     }
@@ -111,8 +112,8 @@ class ItemSearchList extends Component {
             const itemId = item.itemId;
             const orderNum = this.state.orderNums[itemId] || '';
             return (
-                <li key={itemId}>
-                    상품명: {item.name}, 가격: {item.price}
+                <li className={styles.search_list} key={itemId}>
+                    <text> 상품명: {item.name}, 가격: {item.price} </text>
                     <form onSubmit={(e) => this.addOrderItem(e, itemId)}>
                         <label>
                             <input type="text" value={orderNum} onChange={(e) => this.handleOrderNumChange(e, itemId)}></input>
@@ -122,7 +123,7 @@ class ItemSearchList extends Component {
                 </li>
             );
         });
-        return <ul>{liList}</ul>;
+        return <ul className={styles.search_list}>{liList}</ul>;
     }
 }
 
@@ -150,13 +151,13 @@ class OrderItemContent extends Component {
     render() {
         const liList = this.props
                             .orderItemList
-                            .map(orderItem => <li key={orderItem.itemId}> 상품ID : {orderItem.itemId}, 주문수량 : {orderItem.orderNum}</li>);
+                            .map(orderItem => <li className={styles.order_item_content} key={orderItem.itemId}> 상품ID : {orderItem.itemId}, 주문 수량 : {orderItem.orderNum}</li>);
         return (
             <div>
-                <ul>{liList}</ul>;
-                <form onSubmit={(e) => this.requestOrderItem(e)}>
+                <ul className={styles.order_item_content}>{liList}</ul>
+                <form class={styles.order_item_content} onSubmit={(e) => this.requestOrderItem(e)}>
                     <label>
-                        <input type="text" value={this.state.name} onChange={e=>this.changeName(e)}></input>
+                        <input type="text" value={this.state.name} onChange={e=>this.changeName(e)} placeholder="주문자를 입력하세요."></input>
                     </label>
                     <input type="submit" value="주문"></input>
                 </form>

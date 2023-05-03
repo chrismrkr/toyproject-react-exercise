@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from '../styles/tab.module.css';
 
 class TabControl extends Component {
     constructor(props) {
@@ -6,8 +7,9 @@ class TabControl extends Component {
     }
     render() {
         const tabNameList = ['홈', '조회', '주문'];
-        const liList = tabNameList.map(tabName => <li><TabButton tabName={tabName} tabSelectCallback={(tabName) => this.props.tabSelectCallback(tabName)}/></li>);
-        return <ul>{liList}</ul>;
+        const liList = tabNameList.map(tabName => <li className={styles.control_li}><TabButton tabName={tabName} tabSelectCallback={(tabName) => this.props.tabSelectCallback(tabName)}/></li>);
+        liList.push(<li className={styles.control_li_logo} >Item Order Example</li>);
+        return <ul className={styles.control_main}>{liList}</ul>;
     }
 }
 class TabButton extends Component {
@@ -21,7 +23,7 @@ class TabButton extends Component {
     render() {
         return (
             <form>
-                <button onClick={(event) => this.handleClick(event)}>
+                <button className={styles.control_button} onClick={(event) => this.handleClick(event)}>
                     {this.props.tabName}
                 </button>
             </form>

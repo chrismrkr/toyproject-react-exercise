@@ -1,0 +1,26 @@
+ul.control_main {
+    height: 40px;
+    width: auto;
+    background: #61aafb;
+    margin: 0;
+    padding: 0;
+}
+li.control_li {
+    list-style-type: none;
+    float: left;
+    margin: 0px 15px;
+    padding: 0px;
+}
+
+li.control_li_logo {
+    list-style-type: none;
+    float: right;
+    margin: 3px 10px 0px 5px;
+    padding: 0px;
+    color: white;
+    font-size: 15px;
+}
+
+button.control_button {
+    width: 50px;
+}

@@ -1,0 +1,46 @@
+
+form.search_engine_form {
+    margin: 5px;
+    height: 40px;
+    padding: 0px;
+}
+b.search_engine_form {
+    padding: 0px;
+    margin-right: 10px;
+    font-size: 15px;
+}
+input.search_engine_form {
+    padding: 0px;
+    margin-right: 10px;
+}
+
+ul.search_list {
+    margin: 0px;
+    padding: 0px;
+    height: 200px;
+    overflow: auto;
+}
+li.search_list {
+    margin: 5px;
+    padding: 0px;
+    font-size: 15px;
+}
+
+ul.order_item_content {
+    margin: 0px;
+    padding: 0px;
+    height: 200px;
+    overflow: auto;
+}
+
+li.order_item_content {
+    margin: 5px;
+    padding: 0px;
+    font-size: 15px;
+}
+
+form.order_item_content {
+    margin: 0px;
+    padding: 0px;
+    height: 50px;
+}

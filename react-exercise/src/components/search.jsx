@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from '../styles/search.module.css';
 
 class SearchMain extends Component {
     constructor(props) {
@@ -59,7 +60,6 @@ class SearchController extends Component {
         this.state = {
             username: ""
         }
-        this.handleButton = this.handleButton.bind(this);
     }
     handleChange(event) {
         this.setState({
@@ -74,10 +74,10 @@ class SearchController extends Component {
         return (
             <form onSubmit={(e) => this.handleButton(e)}>
                 <label>
-                    <b>이름</b>
-                    <input type="text" value={this.state.username} onChange={(e)=>this.handleChange(e)} placeholder="이름을 입력하세요."></input>
+                    <b className={styles.search_engine}>이름</b>
+                    <input className={styles.search_engine} type="text" value={this.state.username} onChange={(e)=>this.handleChange(e)} placeholder="이름을 입력하세요."></input>
                 </label>
-                <input type="submit" value="조회"/>
+                <input className={styles.search_engine }type="submit" value="조회"/>
             </form>
         );
     }
@@ -93,9 +93,9 @@ class SearchResult extends Component {
     }
 
     render() {
-        const liList = this.props.orderList.map((order) => <li><SearchRow orderDescript={order.description} refLink={order.refLink} detailSearchCallback={this.passDetailSearchCallback}/></li>);
+        const liList = this.props.orderList.map((order) => <li className={styles.search_result}><SearchRow orderDescript={order.description} refLink={order.refLink} detailSearchCallback={this.passDetailSearchCallback}/></li>);
         return (
-            <ul>{liList}</ul>
+            <ul className={styles.search_result}>{liList}</ul>
         );    
     }
 }
@@ -112,9 +112,9 @@ class SearchRow extends Component {
     }
     render() {
         return (
-            <div class='row'>
+            <div>
                 {this.props.orderDescript} 
-                <button onClick={this.handleClick}>
+                <button className={styles.search_details} onClick={this.handleClick}>
                     상세 조회
                 </button>
             </div>
@@ -127,8 +127,8 @@ class SearchDetails extends Component {
         super(props);
     }
     render() {
-        const liList = this.props.orderItemList.map(orderItem => <li>{orderItem.name}, {orderItem.price}, {orderItem.quantity}</li>);
-        return <ul>{liList}</ul>;
+        const liList = this.props.orderItemList.map(orderItem => <li className={styles.search_result}>{orderItem.name}, {orderItem.price}, {orderItem.quantity}</li>);
+        return <ul className={styles.search_result}>{liList}</ul>;
     }
 }
 export default SearchRow;

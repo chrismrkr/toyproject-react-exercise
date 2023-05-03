@@ -1,0 +1,19 @@
+li.search_result {
+    list-style-type: none;
+    margin: 10px;
+}
+ul.search_result {
+    height: 200px;
+    overflow: auto;
+}
+
+button.search_details {
+    margin-top: 10px;
+}
+
+b.search_engine {
+    margin-top: 10px;
+}
+input.search_engine {
+    margin: 10px;
+}
